@@ -15,4 +15,37 @@
   --color-green-800: #016538;
   --color-green-900: #0A5331;
   --color-green-950: #052E16;
+
+  --font-nabla: "Nabla", "sans-serif";
+  --font-dynapuff: "DynaPuff", "sans-serif";
+  --font-sour-gummy: "Sour Gummy", "sans-serif";
+}
+
+:root {
+  --bg-image: url('/bg-light.svg');
+}
+
+.dark {
+  --bg-image: url('/bg.svg');
+}
+
+.bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.3s ease;
+  --animate-duration: 8s;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
 }

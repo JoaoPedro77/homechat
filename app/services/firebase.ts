@@ -2,14 +2,14 @@ import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
 
-const firebaseConfig = {
-  apiKey: 'AIzaSyBld1AuiofS8_0d6ntjz5vwx-gDY99BA60',
-  authDomain: 'homechat-5d320.firebaseapp.com',
-  projectId: 'homechat-5d320',
-  storageBucket: 'homechat-5d320.firebasestorage.app',
-  messagingSenderId: '142930405705',
-  appId: '1:142930405705:web:e0637800d7ee22cf969298',
-  measurementId: 'G-YTDVGDGRT8'
+export const firebaseConfig = {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 }
 
 const app = initializeApp(firebaseConfig)

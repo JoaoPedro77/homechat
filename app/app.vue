@@ -4,14 +4,14 @@ useHead({
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
   ],
   link: [
-    { rel: 'icon', href: 'https://cdn-icons-png.flaticon.com/512/609/609803.png' }
+    { rel: 'icon', href: '/favicon.png' }
   ],
   htmlAttrs: {
     lang: 'PT-BR'
   }
 })
 
-const title = 'HomeChat - A casa da conversa'
+const title = 'HomeChat - O lar da conversa'
 const description = 'HomeChat é um aplicativo de mensagens em tempo real. o HomeChat é a escolha perfeita para quem busca harmonia com a tecnologia e com seu lar'
 
 useSeoMeta({
@@ -24,44 +24,32 @@ useSeoMeta({
 </script>
 
 <template>
-  <UApp>
-    <UHeader>
+  <UApp class="h-screen flex flex-col overflow-hidden">
+    <div class="bg-container animate__animated animate__pulse animate__infinite" />
+    <UHeader
+      :toggle="false"
+      class="h-25"
+    >
       <template #left>
         <NuxtLink to="/">
-          <UAvatar
-            src="/favicon.ico"
-            alt="HomeChat Logo"
-            size="md"
-            color="primary"
-          />
-          <div class="flex flex-col">
-            <span class="ml-2 font-bold text-lg">HomeChat</span>
-            <span class="ml-2 text-sm text-muted">A casa da conversa</span>
+          <div class="flex items-center ">
+            <img
+              src="/favicon.png"
+              alt="HomeChat Logo"
+              class="w-25"
+            >
+            <div class="flex flex-col">
+              <span class="ml-2 text-lg font-dynapuff">HomeChat</span>
+              <span class="ml-2 text-xs text-neutral-600">O lar da conversa</span>
+            </div>
           </div>
         </NuxtLink>
       </template>
 
       <template #right>
         <UColorModeButton />
-      </template>
-    </UHeader>
-
-    <UMain>
-      <NuxtPage />
-    </UMain>
-
-    <USeparator icon="i-simple-icons-nuxtdotjs" />
-
-    <UFooter>
-      <template #left>
-        <p class="text-sm text-muted">
-          Powered by SALO - HomeTech • © {{ new Date().getFullYear() }}
-        </p>
-      </template>
-
-      <template #right>
         <UButton
-          to="https://github.com/nuxt-ui-templates/starter"
+          to="https://github.com/JoaoPedro77"
           target="_blank"
           icon="i-simple-icons-github"
           aria-label="GitHub"
@@ -69,6 +57,10 @@ useSeoMeta({
           variant="ghost"
         />
       </template>
-    </UFooter>
+    </UHeader>
+
+    <UMain class="flex-1">
+      <NuxtPage />
+    </UMain>
   </UApp>
 </template>
