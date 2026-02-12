@@ -1,4 +1,6 @@
 <script setup>
+import { auth } from './services/firebase'
+
 useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
@@ -13,6 +15,14 @@ useHead({
 
 const title = 'HomeChat - O lar da conversa'
 const description = 'HomeChat é um aplicativo de mensagens em tempo real. o HomeChat é a escolha perfeita para quem busca harmonia com a tecnologia e com seu lar'
+const cookie = useCookie('autenticado')
+
+const logout = async () => {
+  await auth.signOut()
+  const autenticado = useCookie('autenticado')
+  autenticado.value = null
+  navigateTo('/login')
+}
 
 useSeoMeta({
   title,
@@ -25,7 +35,10 @@ useSeoMeta({
 
 <template>
   <UApp class="h-screen flex flex-col">
-    <div class="bg-container animate__animated animate__pulse animate__infinite" />
+    <div
+      v-if="!$route.path.includes('chat')"
+      class="bg-container animate__animated animate__pulse animate__infinite"
+    />
     <UHeader
       :toggle="false"
       class="h-25"
@@ -51,10 +64,18 @@ useSeoMeta({
         <UButton
           to="https://github.com/JoaoPedro77"
           target="_blank"
-          icon="i-simple-icons-github"
-          aria-label="GitHub"
+          icon="mdi:snake"
+          aria-label="Salo"
           color="neutral"
           variant="ghost"
+        />
+        <UButton
+          v-if="cookie"
+          icon="solar:logout-2-bold-duotone"
+          aria-label="Sair"
+          color="neutral"
+          variant="ghost"
+          @click="logout"
         />
       </template>
     </UHeader>
