@@ -60,7 +60,6 @@ useSeoMeta({
       </template>
 
       <template #right>
-        <UColorModeButton />
         <UButton
           to="https://github.com/JoaoPedro77"
           target="_blank"

@@ -3,6 +3,7 @@ export default defineAppConfig({
     colors: {
       primary: 'teal',
       neutral: 'slate'
-    }
+    },
+    darkMode: true
   }
 })
