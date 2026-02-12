@@ -24,7 +24,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <UApp class="h-screen flex flex-col overflow-hidden">
+  <UApp class="h-screen flex flex-col">
     <div class="bg-container animate__animated animate__pulse animate__infinite" />
     <UHeader
       :toggle="false"
